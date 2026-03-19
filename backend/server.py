@@ -393,12 +393,16 @@ async def remove_from_cart(product_id: str, user: dict = Depends(get_current_use
 
 @api_router.post("/orders/create")
 async def create_order(order_data: OrderCreate, user: dict = Depends(get_current_user)):
-    # Calculate total
+    # Calculate total - batch query to avoid N+1
+    product_ids = [item.product_id for item in order_data.items]
+    products = await db.products.find({"product_id": {"$in": product_ids}}, {"_id": 0}).to_list(len(product_ids))
+    product_map = {p["product_id"]: p for p in products}
+    
     total = 0.0
     order_items = []
     
     for item in order_data.items:
-        product = await db.products.find_one({"product_id": item.product_id}, {"_id": 0})
+        product = product_map.get(item.product_id)
         if not product:
             raise HTTPException(status_code=404, detail=f"Product {item.product_id} not found")
         if product["stock"] < item.quantity:
