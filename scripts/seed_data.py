@@ -60,7 +60,7 @@ async def seed_data():
                 "camera": "48MP + 12MP + 12MP",
                 "os": "iOS 17"
             },
-            "images": ["https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=500"],
+            "images": ["https://images.unsplash.com/photo-1678652197831-2d180705cd2c?w=800&bg=white"],
             "stock": 15,
             "description": "Latest iPhone with titanium design and advanced camera system",
             "featured": True,
