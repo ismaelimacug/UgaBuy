@@ -97,17 +97,6 @@ const AdminDashboard = () => {
                 <div className="text-sm text-muted-foreground">Add, edit, or remove products</div>
               </Link>
               <Link
-                to="/admin/techspecs"
-                className="block p-4 border border-border rounded-lg hover:border-primary transition-colors bg-accent"
-                data-testid="link-techspecs-import"
-              >
-                <div className="font-medium flex items-center">
-                  <span className="mr-2">🔍</span>
-                  Import from TechSpecs
-                </div>
-                <div className="text-sm text-muted-foreground">Search & import products with specs & images</div>
-              </Link>
-              <Link
                 to="/admin/orders"
                 className="block p-4 border border-border rounded-lg hover:border-primary transition-colors"
                 data-testid="link-manage-orders"
