@@ -27,7 +27,7 @@ client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
 # JWT & Stripe Config
-JWT_SECRET = os.environ.get('JWT_SECRET', 'ugabuy_secret_key_2026')
+JWT_SECRET = os.environ['JWT_SECRET']
 STRIPE_API_KEY = os.environ.get('STRIPE_API_KEY')
 RESEND_API_KEY = os.environ.get('RESEND_API_KEY')
 SENDER_EMAIL = os.environ.get('SENDER_EMAIL', 'onboarding@resend.dev')
