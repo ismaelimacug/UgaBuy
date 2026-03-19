@@ -22,6 +22,7 @@ import FAQ from './pages/FAQ';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminProducts from './pages/admin/AdminProducts';
 import AdminOrders from './pages/admin/AdminOrders';
+import TechSpecsImport from './pages/admin/TechSpecsImport';
 import './App.css';
 
 const ProtectedRoute = ({ children, adminOnly = false }) => {
