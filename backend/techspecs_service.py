@@ -31,18 +31,30 @@ class TechSpecsService:
         """
         async with httpx.AsyncClient() as client:
             try:
+                # TechSpecs v4 uses POST for search
                 response = await client.post(
-                    f"{self.base_url}/product/search?query={query}",
+                    f"{self.base_url}/product/search",
                     headers=self.headers,
-                    timeout=10.0
+                    json={"query": query},
+                    timeout=15.0
                 )
                 response.raise_for_status()
                 data = response.json()
                 
-                # Return limited results
-                products = data.get('products', [])[:limit]
-                return products
+                # Log response for debugging
+                print(f"TechSpecs API Response: {data}")
                 
+                # Return limited results - handle different response formats
+                if isinstance(data, dict):
+                    products = data.get('products', data.get('data', []))
+                else:
+                    products = data if isinstance(data, list) else []
+                    
+                return products[:limit]
+                
+            except httpx.HTTPStatusError as e:
+                print(f"TechSpecs HTTP Error: {e.response.status_code} - {e.response.text}")
+                return []
             except Exception as e:
                 print(f"Error searching TechSpecs: {str(e)}")
                 return []
