@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-import api from '../utils/api';
+import { useAuth } from '../../context/AuthContext';
+import api from '../../utils/api';
 import { Package, ShoppingBag, Users, TrendingUp } from 'lucide-react';
 
 const AdminDashboard = () => {
