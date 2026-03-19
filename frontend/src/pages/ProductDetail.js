@@ -74,16 +74,16 @@ const ProductDetail = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
-            <div className="bg-muted rounded-lg overflow-hidden mb-4">
+            <div className="bg-white rounded-lg overflow-hidden mb-4 border border-border">
               {product.images && product.images[selectedImage] ? (
                 <img
                   src={product.images[selectedImage]}
                   alt={product.name}
-                  className="w-full h-96 object-contain"
+                  className="w-full h-96 object-contain p-8 bg-white"
                   data-testid="product-main-image"
                 />
               ) : (
-                <div className="w-full h-96 flex items-center justify-center">
+                <div className="w-full h-96 flex items-center justify-center bg-white">
                   <span className="text-muted-foreground">No image available</span>
                 </div>
               )}
