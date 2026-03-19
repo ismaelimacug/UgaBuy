@@ -57,6 +57,12 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<Products />} />
               <Route path="/products/:id" element={<ProductDetail />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/returns" element={<Returns />} />
               <Route path="/login" element={<Login />} />
               <Route
                 path="/cart"
@@ -115,6 +121,7 @@ function App() {
                 }
               />
             </Routes>
+            <Footer />
             <Toaster position="top-right" />
           </div>
         </BrowserRouter>
