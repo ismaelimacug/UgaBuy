@@ -29,7 +29,11 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center" data-testid="nav-logo">
-            <h1 className="text-2xl font-bold text-primary">UgaBuy</h1>
+            <img 
+              src="https://customer-assets.emergentagent.com/job_techstore-ug/artifacts/kju79vt4_ugabuy%20logo.jpg" 
+              alt="UgaBuy" 
+              className="h-10 w-auto"
+            />
           </Link>
 
           <div className="hidden md:flex flex-1 max-w-md mx-8">
