@@ -120,14 +120,6 @@ function App() {
                   </ProtectedRoute>
                 }
               />
-              <Route
-                path="/admin/techspecs"
-                element={
-                  <ProtectedRoute adminOnly>
-                    <TechSpecsImport />
-                  </ProtectedRoute>
-                }
-              />
             </Routes>
             <Footer />
             <Toaster position="top-right" />
