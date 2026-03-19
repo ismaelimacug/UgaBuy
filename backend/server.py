@@ -311,10 +311,18 @@ async def get_cart(user: dict = Depends(get_current_user)):
     if not cart:
         return {"cart_id": str(uuid.uuid4()), "user_id": user["user_id"], "items": []}
     
-    # Populate product details
+    # Populate product details - batch query to avoid N+1
+    cart_items = cart.get("items", [])
+    if not cart_items:
+        return {"cart_id": cart["cart_id"], "user_id": cart["user_id"], "items": []}
+    
+    product_ids = [item["product_id"] for item in cart_items]
+    products = await db.products.find({"product_id": {"$in": product_ids}}, {"_id": 0}).to_list(len(product_ids))
+    product_map = {p["product_id"]: p for p in products}
+    
     items_with_details = []
-    for item in cart.get("items", []):
-        product = await db.products.find_one({"product_id": item["product_id"]}, {"_id": 0})
+    for item in cart_items:
+        product = product_map.get(item["product_id"])
         if product:
             items_with_details.append({
                 "product": product,
