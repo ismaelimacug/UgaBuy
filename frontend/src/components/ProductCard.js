@@ -33,15 +33,15 @@ const ProductCard = ({ product }) => {
 
   return (
     <Link to={`/products/${product.product_id}`} className="product-card block bg-white border border-border rounded-lg overflow-hidden" data-testid={`product-card-${product.product_id}`}>
-      <div className="relative overflow-hidden h-48 bg-muted">
+      <div className="relative overflow-hidden h-48 bg-white">
         {product.images && product.images[0] ? (
           <img
             src={product.images[0]}
             alt={product.name}
-            className="product-image w-full h-full object-cover"
+            className="product-image w-full h-full object-contain p-4"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center bg-accent">
+          <div className="w-full h-full flex items-center justify-center bg-white">
             <span className="text-muted-foreground">No image</span>
           </div>
         )}
