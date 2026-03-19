@@ -461,9 +461,9 @@ async def create_checkout(request: Request, user: dict = Depends(get_current_use
     # Convert UGX to USD for Stripe (1 USD = ~3800 UGX approx)
     amount_usd = round(order["total_amount"] / 3800.0, 2)
     
-    # Initialize Stripe
-    host_url = origin_url
-    webhook_url = f"{os.environ.get('REACT_APP_BACKEND_URL', host_url)}/api/webhook/stripe"
+    # Initialize Stripe - construct webhook URL from request
+    host_url = str(request.base_url).rstrip('/')
+    webhook_url = f"{host_url}/api/webhook/stripe"
     stripe_checkout = StripeCheckout(api_key=STRIPE_API_KEY, webhook_url=webhook_url)
     
     success_url = f"{origin_url}/orders/{order_id}?session_id={{{{CHECKOUT_SESSION_ID}}}}"
