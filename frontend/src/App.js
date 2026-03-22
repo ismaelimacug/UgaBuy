@@ -5,6 +5,7 @@ import { CartProvider } from './context/CartContext';
 import { Toaster } from './components/ui/sonner';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
