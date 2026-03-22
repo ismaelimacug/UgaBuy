@@ -56,7 +56,7 @@ const Home = () => {
                 <Link
                   key={category.name}
                   to={category.path}
-                  className="p-6 border border-border bg-white rounded-lg hover:border-primary/50 transition-colors flex flex-col items-center justify-center space-y-4"
+                  className="p-6 border border-border bg-card rounded-lg hover:border-primary/50 hover:bg-accent transition-all flex flex-col items-center justify-center space-y-4"
                   data-testid={`category-${category.name.toLowerCase()}`}
                 >
                   <Icon className="h-12 w-12 text-primary" />
