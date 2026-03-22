@@ -59,7 +59,7 @@ const Products = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           <aside className="lg:col-span-1" data-testid="filters-sidebar">
-            <div className="bg-white border border-border rounded-lg p-6 sticky top-20">
+            <div className="bg-card border border-border rounded-lg p-6 sticky top-20 shadow-lg">
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-xl font-semibold">Filters</h2>
                 {(filters.category || filters.brand || filters.condition) && (
