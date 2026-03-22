@@ -123,6 +123,7 @@ function App() {
               />
             </Routes>
             <Footer />
+            <FloatingWhatsApp />
             <Toaster position="top-right" />
           </div>
         </BrowserRouter>
