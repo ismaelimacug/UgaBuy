@@ -32,16 +32,17 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <Link to={`/products/${product.product_id}`} className="product-card block bg-white border border-border rounded-lg overflow-hidden" data-testid={`product-card-${product.product_id}`}>
-      <div className="relative overflow-hidden h-48 bg-white">
+    <Link to={`/products/${product.product_id}`} className="product-card block bg-card border border-border rounded-lg overflow-hidden hover:shadow-xl transition-all" data-testid={`product-card-${product.product_id}`}>
+      <div className="relative overflow-hidden h-48 bg-[#1a1f2e]">
         {product.images && product.images[0] ? (
           <img
             src={product.images[0]}
             alt={product.name}
-            className="product-image w-full h-full object-contain p-4"
+            className="product-image w-full h-full object-contain p-4 bg-white rounded-lg m-2"
+            style={{height: '11rem', width: 'calc(100% - 1rem)'}}
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center bg-white">
+          <div className="w-full h-full flex items-center justify-center bg-white m-2 rounded-lg">
             <span className="text-muted-foreground">No image</span>
           </div>
         )}
